@@ -1,0 +1,118 @@
+{
+    "items": [
+        {
+            "name": "兔子0",
+            "price": 0,
+            "id": "skin_0",
+            "image": "resources/character/skin_0.png"
+        },
+        {
+            "name": "兔子1",
+            "price": 10,
+            "id": "skin_1",
+            "image": "resources/character/skin_1.png"
+        },
+        {
+            "name": "兔子2",
+            "price": 50,
+            "id": "skin_2",
+            "image": "resources/character/skin_2.png"
+        },
+        {
+            "name": "兔子3",
+            "price": 100,
+            "id": "skin_3",
+            "image": "resources/character/skin_3.png"
+        },
+        {
+            "name": "商品4",
+            "price": 100,
+            "id": "skin_4",
+            "image": "resources/character/skin_4.png"
+        },
+        {
+            "name": "商品5",
+            "price": 200,
+            "id": "skin_5",
+            "image": "resources/character/skin_5.png"
+        },
+        {
+            "name": "商品6",
+            "price": 200,
+            "id": "skin_6",
+            "image":"resources/character/skin_6.png"
+        },
+        {
+            "name": "商品7",
+            "price": 200,
+            "id": "skin_7",
+            "image":"resources/character/skin_7.png"
+        },
+        {
+            "name": "商品8",
+            "price": 300,
+            "id": "skin_8",
+            "image":"resources/character/skin_8.png"
+        },
+        {
+            "name": "商品8",
+            "price": 300,
+            "id": "skin_9",
+            "image":"resources/character/skin_9.png"
+        },
+        {
+            "name": "商品8",
+            "price": 300,
+            "id": "skin_10",
+            "image":"resources/character/skin_10.png"
+        },
+        {
+            "name": "商品8",
+            "price": 500,
+            "id": "skin_11",
+            "image":"resources/character/skin_11.png"
+        },
+        {
+            "name": "商品8",
+            "price": 500,
+            "id": "skin_12",
+            "image":"resources/character/skin_12.png"
+        },
+        {
+            "name": "商品8",
+            "price": 500,
+            "id": "skin_13",
+            "image":"resources/character/skin_13.png"
+        },
+        {
+            "name": "商品8",
+            "price": 500,
+            "id": "skin_14",
+            "image":"resources/character/skin_14.png"
+        },
+        {
+            "name": "商品8",
+            "price": 1000,
+            "id": "skin_15",
+            "image":"resources/character/skin_15.png"
+        },
+        {
+            "name": "商品8",
+            "price": 1000,
+            "id": "skin_16",
+            "image":"resources/character/skin_16.png"
+        },
+        {
+            "name": "商品8",
+            "price": 1000,
+            "id": "skin_17",
+            "image":"resources/character/skin_17.png"
+        },
+        {
+            "name": "商品8",
+            "price": 1000,
+            "id": "skin_18",
+            "image":"resources/character/skin_18.png"
+        }
+    ]
+}

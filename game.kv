@@ -1,0 +1,305 @@
+#:kivy 2.1.0
+
+<Label>:
+    font_name: "msyh"
+
+<MenuScreen>:
+    name: "menu"
+    FloatLayout:
+        # 背景图像
+        Image:
+            source: "resources/background/background_main.png"  # 设置背景图路径
+            allow_stretch: True
+            keep_ratio: False
+
+        # 显示玩家头像
+        Image:
+            id: player_avatar
+            size_hint: 0.15, 0.15
+            pos_hint: {"center_x": 0.125, "center_y": 0.9}
+        # 显示玩家等级
+        Image:
+            source: "resources/button/level.png"  # 设置背景图路径
+            size_hint: 0.07, 0.045
+            pos_hint: {"center_x": 0.35, "center_y": 0.92}
+            allow_stretch: True
+            keep_ratio: False
+        # 显示玩家等级
+        Label:
+            id: player_level
+            text: "22"
+            size_hint: 0.2, 0.07
+            pos_hint: {"x": 0.45, "center_y": 0.92}
+            color: (0, 0, 0, 1)
+            halign: "left"
+            valign: "middle"
+            text_size: self.size
+        # 显示玩家金钱量
+        Image:
+            source: "resources/money/coin/coin_1.png"  # 设置背景图路径
+            size_hint: 0.07, 0.035
+            pos_hint: {"center_x": 0.35, "center_y": 0.86}
+            allow_stretch: True
+            keep_ratio: False
+        Label:
+            id: player_money
+            text: "金币: 100"
+            size_hint: 0.2, 0.07
+            pos_hint: {"x": 0.45, "center_y": 0.86}
+            color: (0, 0, 0, 1)
+            halign: "left"
+            valign: "middle"
+            text_size: self.size
+
+       # 切换声音按钮
+        Button:
+            id: music_control
+            size_hint: 0.07, 0.045
+            pos_hint: {"center_x": 0.65, "center_y": 0.92}
+            background_normal: "resources/button/sound.png"
+            background_down: "resources/button/sound.png"
+            border: (0, 0, 0, 0)
+            allow_stretch: True
+            keep_ratio: False
+            on_release: root.switch_music_state()
+        # 切换语言按钮
+        Button:
+            size_hint: 0.07, 0.045
+            pos_hint: {"center_x": 0.9, "center_y": 0.92}
+            background_normal: "resources/button/switch.png"
+            background_down: "resources/button/switch.png"
+            border: (0, 0, 0, 0)
+            allow_stretch: True
+            keep_ratio: False
+            on_release: root.switch_language()
+        # 显示当前语言类型
+        Label:
+            id: language_type
+            text: "en"
+            size_hint: 0.15, 0.035
+            pos_hint: {"center_x": 0.9, "center_y": 0.92}
+            color: (1, 1, 0, 1)
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+       # 切换摄像头按钮
+        Button:
+            size_hint: 0.075, 0.048
+            pos_hint: {"center_x": 0.9, "center_y": 0.86}
+            background_normal: "resources/button/swapCamera.png"
+            background_down: "resources/button/swapCamera.png"
+            border: (0, 0, 0, 0)
+            allow_stretch: True
+            keep_ratio: False
+            on_release: root.switch_camera()
+
+        # 分享按钮3
+        Button:
+            size_hint: 0.07, 0.045
+            pos_hint: {"center_x": 0.65, "center_y": 0.86}
+            background_normal: "resources/button/share.png"
+            background_down: "resources/button/share.png"
+            border: (0, 0, 0, 0)
+            allow_stretch: True
+            keep_ratio: False
+            on_release: root.share()
+        # 玩家信息背景板
+        Image:
+            size_hint: 0.88, 0.54  # 调整背景板大小
+            pos_hint: {"center_x": 0.5, "center_y": 0.56}  # 调整背景板位置
+            source: "resources/background/frame.png"
+            allow_stretch: True
+            keep_ratio: False
+
+        # 显示当前语言类型
+        Label:
+            id: motion_record
+            text: "运动记录:"
+            size_hint: 0.2, 0.05
+            pos_hint: {"x": 0.125, "center_y": 0.78}
+            color: (0, 0, 0, 1)
+            halign: "left"
+            valign: "middle"
+            text_size: self.size
+
+
+
+
+
+
+        # 显示玩家颈部后仰次数
+        Button:
+            background_normal: "resources/guide/up.png"  # 设置背景图路径
+            background_down: "resources/guide/up.png"
+            size_hint: 0.15, 0.07
+            border: (0, 0, 0, 0)
+            allow_stretch: True
+            keep_ratio: False
+            pos_hint: {"center_x": 0.75, "center_y": 0.74}
+            on_release: root.show_motion_tip(r"resources/guide/pre_guide_up.png")
+
+        Label:
+            id: player_retraction
+            text: "颈部后仰次数(跳跃加速): 0"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.2, 0.06
+            pos_hint: {"center_x": 0.75, "center_y": 0.68}
+            color: (0, 0, 0, 1)
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+
+        # 显示玩家颈部拉升次数
+        Button:
+            background_normal: "resources/guide/move_right.png"  # 设置背景图路径
+            background_down: "resources/guide/move_right.png"
+            size_hint: 0.15, 0.07
+            border: (0, 0, 0, 0)
+            allow_stretch: True
+            keep_ratio: False
+            pos_hint: {"center_x": 0.25, "center_y": 0.74}
+            on_release: root.show_motion_tip(r"resources/guide/pre_guide_shake.png")
+
+        Label:
+            id: player_tilt
+            text: "颈部拉升次数(左右移动): 0"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.2, 0.06
+            pos_hint: {"center_x": 0.25, "center_y": 0.68}
+            color: (0, 0, 0, 1)
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+        # 显示玩家颈部旋转次数
+        Button:
+            background_normal: "resources/guide/left.png"  # 设置背景图路径
+            background_down: "resources/guide/left.png"
+            size_hint: 0.12, 0.07
+            border: (0, 0, 0, 0)
+            allow_stretch: True
+            keep_ratio: False
+            pos_hint: {"center_x": 0.5, "center_y": 0.74}
+            on_release: root.show_motion_tip(r"resources/guide/pre_guide_turn.png")
+
+        Label:
+            id: player_rotation
+            text: "颈部旋转次数(改变攻击方向): 0"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.2, 0.06
+            pos_hint: {"center_x": 0.5, "center_y": 0.68}
+            color: (0, 0, 0, 1)
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+
+        Image:
+            id: challege_enter
+            source: "resources/door/door_frame_0.png"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.08, 0.04
+            pos_hint: {"center_x": 0.78, "center_y": 0.65}
+
+        Image:
+            id: boss_show
+            source: "resources/monster/bigghostmonster/bigghostmonster_1.png"  # boss怪物
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.44, 0.22
+            pos_hint: {"center_x": 0.5, "center_y": 0.53}
+
+       #对话语言气泡
+        Image:
+            id: boss_speak
+            source: "resources/button/speak_1.png"  # boss怪物
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.5, 0.25
+            opacity: 0
+            pos_hint: {"center_x": 0.5, "center_y": 0.68}
+
+        #对话语言包
+        Label:
+            id: boss_speak_text
+            text: "come on baby, face the camera "
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.4, 0.1
+            pos_hint: {"center_x": 0.5, "center_y": 0.68}
+            color: (0, 0, 0, 0)
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+
+        Label:
+            id: boss_process
+            text: "0/100"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.2, 0.06
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+            color: (0, 0, 0, 1)
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+        # 当前关卡显示
+        Label:
+            id: current_level
+            text: "Level 1"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: 0.3, 0.05
+            pos_hint: {"center_x": 0.5, "center_y": 0.255}
+            color: (0, 0, 0, 1)
+            font_size: '20sp'
+            canvas.before:
+                Color:  # 设置透明度
+                    rgba: (1, 1, 1, 0.2)  # 这里的 0.5 表示 50% 透明度
+                Rectangle:
+                    source: "resources/button/label.png"
+                    pos: self.pos
+                    size: self.size
+
+        # 上一关按钮
+        Button:
+            size_hint: 0.1, 0.05
+            pos_hint: {"center_x": 0.3, "center_y": 0.255}
+            background_normal: "resources/button/prev.png"
+            background_down: "resources/button/prev.png"
+            border: (0, 0, 0, 0)  # 去除边框
+            on_release: root.previous_level()
+
+        # 下一关按钮
+        Button:
+            id: next_level
+            size_hint: 0.1, 0.05
+            pos_hint: {"center_x": 0.7, "center_y": 0.255}
+            background_normal: "resources/button/next.png"
+            background_down: "resources/button/next.png"
+            #background_color: (0, 0, 0, 0)  # 关键！设置透明背景
+            border: (0, 0, 0, 0)  # 去除边框
+            on_release: root.next_level()
+
+        # 进入游戏按钮
+        Button:
+            id: start_button
+            background_normal: "resources/button/start_game.png"
+            background_down: "resources/button/start_game.png"
+            border: (0, 0, 0, 0)  # 去除边框
+            size_hint: 0.23, 0.115
+            pos_hint: {"center_x": 0.5, "center_y": 0.17}
+            on_release: app.load_level()
+            allow_stretch: False
+            keep_ratio: True
+
+
+
+
+
+
+
+
+

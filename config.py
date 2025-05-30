@@ -1,0 +1,75 @@
+from kivy.core.window import Window
+from kivy.utils import platform
+from kivy.config import Config
+
+if platform == 'android' or platform=="ios":
+    WINDOW_PAD = 1
+    (WINDOW_WIDTH, WINDOW_HEIGHT)=Window.size
+else:
+    WINDOW_PAD = 1
+    WINDOW_HEIGHT = 2712/3
+    WINDOW_WIDTH = 1220*WINDOW_PAD/3
+
+Window.size = (WINDOW_WIDTH, WINDOW_HEIGHT)
+
+CHARACTER_SIZE_FACTOR = (0.07,0.07)
+DOOR_SIZE_FACTOR = (0.4,0.2)
+BULLET_SIZE_FACTOR= (0.06,0.03)
+# WINDOW_SIZE = 500
+GRAVITY_FACTOR = -0.001
+BOUNCE_FACTOR = -1
+ACCELERATION_FACTOR = 0.012
+#MOVE_DISTANCE = base_size/360
+VELOCITY_X_FACTOR = 0.02
+FRICTION = 0.0000
+MIN_VELOCITY_Y_FACTOR = 1/72
+# MAX_VELOCITY_Y = 50
+BULLET_SPEED_FACTOR = 1/72  # 子弹速度
+
+# SPEED_UP_TIME=3
+SPEED_UP_TIME=1
+# 下面是人脸模型捕捉参数
+# RESOLUTION=(256,256)
+RAW_SCORE_LIMIT = 50
+# threshold for confidence scores
+MIN_SCORE = 0.7
+# NMS similarity threshold
+MIN_SUPPRESSION_THRESHOLD = 0.3
+MAX_FACE_MISS=10
+
+MAX_MONSTER_NUM=100
+#控制攻击密度
+
+MONSTER_DAMAGE_WAIT_TIME=3
+CHARACTER_DAMAGE_WAIT_TIME=5
+
+CHARACTER_SPICULATE_FACTOR=0.15
+CHARACTER_PUSH_FACTOR=2
+MONSTER_BULLET_FACTOR=7.5
+MONSTER_SPICULATE_FACTOR=0.5
+BULLET_PUSH_FACTOR=5
+PUSH_FACTOR=5
+LIMIT_LEVEL=100
+
+AD_GET_COIN_FACTOR=3
+MAX_REVIVE_TIMES= 2
+USE_GOOGLE_SDK=True
+
+#新手引导出发的关卡
+GUIDE_LEVELS=[0,3,6]
+#低于该等级不会出发广告
+AD_LEVEL=0
+SHARE_LEVEL=15
+#GAME_SCREEN_AD_LEVEL=18
+
+#皮肤数量达到一定数量触发评价功能
+REVIEW_SKIN_NUM=4
+
+#用来自己测试的神秘代码
+SPECIAL_CODE="110"
+
+CHALLEGE_LEVEL_LIMIT={"challege_1":30,"challege_2":60,"challege_3":90,"challege_4":120}
+CHALLEGE_OPEN_STATUS={"challege_1":True,"challege_2":True,"challege_3":False,"challege_4":False}
+
+
+
